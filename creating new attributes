@@ -1,0 +1,55 @@
+
+
+class Computer
+  #initialize
+  def initialize(ram, storage, screenSize)
+    @ram = ram
+    @storage = storage
+    @screenSize = screenSize
+  end
+  # Access methods
+  def ram
+    @ram
+  end
+  def storage
+    @storage
+  end
+  def screenSize
+    @screenSize
+  end
+  # Setter methods
+  def setSpeed=(val)
+    @storage = val
+  end
+
+  def to_s
+    "Computer: #{@ram}, Storage:#{@storage}, Screen Size:#{@screenSize}"
+  end
+  def describe
+    puts "The Laptop has the following:  #{self.ram},#{@storage},#{@screenSize}"
+  end
+  def setAttributes=(hash)
+    @ram = hash[:ram]
+    puts "Setting @ram to #{hash[:ram]}"
+    @storage = hash[:storage]
+    puts "Setting @storage to #{hash[:storage]}"
+    @screenSize = hash[:screenSize]
+    puts "Setting @screen size to #{hash[:screenSize]}"
+
+  end
+end
+
+newLaptop = Computer.new "Dell","3 TB","14'"
+puts newLaptop.ram, newLaptop.storage, newLaptop.screenSize
+
+newLaptop.setSpeed ="300 Mhz"
+
+puts newLaptop.to_s
+
+newLaptop.describe
+
+hash = {:ram => "4GB", :storage => "1 TB", :screenSize => "15'"}
+
+newLaptop.setAttributes = hash
+
+puts newLaptop.to_s
